@@ -1,5 +1,5 @@
 {
-  "title": "Find the Hotspot",
+  "title": "Find the Hotspot (note.no)",
   "description": "A question that is answered by pressing the correct hotspot.",
   "contentType": "Question",
   "majorVersion": 1,
@@ -12,7 +12,7 @@
     "majorVersion": 1,
     "minorVersion": 23
   },
-  "machineName": "H5P.ImageHotspotQuestion",
+  "machineName": "H5P.ImageHotspotQuestionNOTENO",
   "preloadedCss": [
     {
       "path": "image-hotspot-question.css"
@@ -30,7 +30,7 @@
       "minorVersion": 2
     },
     {
-      "machineName": "H5PEditor.ImageHotspotQuestion",
+      "machineName": "H5PEditor.ImageHotspotQuestionNOTENO",
       "majorVersion": 1,
       "minorVersion": 8
     }

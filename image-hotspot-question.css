@@ -15,6 +15,59 @@
   height: 100%;
 }
 
+.h5p-image-hotspot-question .h5p-question-introduction {
+  container-type: inline-size;
+}
+
+.h5p-image-hotspot-question .h5p-image-hotspot-question-introduction {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.h5p-image-hotspot-question .h5p-image-hotspot-question-introduction.audio-full {
+  gap: 1rem;
+}
+
+.h5p-image-hotspot-question .h5p-image-hotspot-question-introduction-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.h5p-image-hotspot-question .h5p-image-hotspot-question-introduction.audio-minimalistic .h5p-image-hotspot-question-introduction-audio {
+  flex-shrink: 0;
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+.h5p-image-hotspot-question .h5p-image-hotspot-question-introduction.audio-minimalistic .h5p-image-hotspot-question-introduction-audio .h5p-audio-inner button:before {
+  font-size: 1.25rem;
+}
+
+.h5p-image-hotspot-question .h5p-image-hotspot-question-introduction.audio-full .h5p-image-hotspot-question-introduction-text-wrapper {
+  min-width: 10rem;
+}
+
+.h5p-image-hotspot-question .h5p-image-hotspot-question-introduction.audio-full .h5p-image-hotspot-question-introduction-audio {
+  flex-grow: 1;
+  min-width: 15rem;
+}
+
+@container (max-width: 25rem) {
+  .h5p-image-hotspot-question .h5p-image-hotspot-question-introduction {
+    flex-wrap: wrap;
+  }
+
+  .h5p-image-hotspot-question .h5p-image-hotspot-question-introduction.audio-full .h5p-image-hotspot-question-introduction-text-wrapper {
+    min-width: auto;
+  }
+
+  .h5p-image-hotspot-question .h5p-image-hotspot-question-introduction.audio-full .h5p-image-hotspot-question-introduction-audio {
+    min-width: auto;
+  }
+}
+
 /**
  * This content type is embedded using DIV. there are several examples on themes
  * setting styles for all images, which affects this content type in a bad way.

@@ -26,7 +26,7 @@
         "type": "group",
         "label": "Hotspots",
         "importance": "high",
-        "widget": "imageHotspotQuestion",
+        "widget": "imageHotspotQuestionNoteNo",
         "description": "Drag and drop the desired figure from the toolbar to create a new hotspot. Double-click to edit an existing hotspot. Drag the hotspot to move it. Pull the resize handler in the lower right corner to resize.",
         "fields": [
           {
@@ -36,6 +36,33 @@
             "importance": "high",
             "description": "Instructions to the user.",
             "optional": true
+          },
+          {
+            "state": "new",
+            "name": "taskDescriptionAudio",
+            "type": "group",
+            "label": "Optional audio task description",
+            "importance": "low",
+            "optional": true,
+            "fields": [
+              {
+                "state": "new",
+                "name": "audio",
+                "type": "library",
+                "label": "Optional audio task description",
+                "optional": true,
+                "options": [
+                  "H5P.Audio 1.5"
+                ]
+              },
+              {
+                "state": "new",
+                "name": "dummy",
+                "type":"boolean",
+                "label": "Dummy",
+                "widget": "none"
+              }
+            ]
           },
           {
             "name": "hotspot",

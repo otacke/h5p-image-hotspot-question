@@ -1,7 +1,10 @@
-H5P Image Hotspot Question
+H5P Image Hotspot Question (note.no)
 ==========
 
 Create a question that is answered by pressing the correct hotspot.
+
+## Changes to H5P.ImageHotspotQuestion 1.8
+- Add audio option for task
 
 ## License
 

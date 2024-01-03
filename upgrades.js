@@ -1,6 +1,6 @@
 var H5PUpgrades = H5PUpgrades || {};
 
-H5PUpgrades['H5P.ImageHotspotQuestion'] = (function () {
+H5PUpgrades['H5P.ImageHotspotQuestionNOTENO'] = (function () {
   return {
     1: {
       8: function (parameters, finished, extras) {

@@ -1,5 +1,5 @@
 /*global H5P*/
-H5P.ImageHotspotQuestion = (function ($, Question) {
+H5P.ImageHotspotQuestionNOTENO = (function ($, Question) {
 
   /**
    * Initialize module.
@@ -10,11 +10,11 @@ H5P.ImageHotspotQuestion = (function ($, Question) {
    * @param {number} id Content identification
    * @param {Object} contentData Task specific content data
    */
-  function ImageHotspotQuestion(params, id, contentData) {
+  function ImageHotspotQuestionNOTENO(params, id, contentData) {
     var self = this;
 
     var defaults = {
-      imageHotspotQuestion: {
+      imageHotspotQuestionNoteNo: {
         backgroundImageSettings: {
           backgroundImage: {
             path: ''
@@ -106,18 +106,65 @@ H5P.ImageHotspotQuestion = (function ($, Question) {
   }
 
   // Inheritance
-  ImageHotspotQuestion.prototype = Object.create(Question.prototype);
-  ImageHotspotQuestion.prototype.constructor = ImageHotspotQuestion;
+  ImageHotspotQuestionNOTENO.prototype = Object.create(Question.prototype);
+  ImageHotspotQuestionNOTENO.prototype.constructor = ImageHotspotQuestionNOTENO;
 
   /**
    * Registers this question types DOM elements before they are attached.
    * Called from H5P.Question.
    */
-  ImageHotspotQuestion.prototype.registerDomElements = function () {
-    // Register task introduction text
+  ImageHotspotQuestionNOTENO.prototype.registerDomElements = function () {
+
+    const introduction = document.createElement('div');
+    introduction.classList.add('h5p-image-hotspot-question-introduction');
+
     if (this.hotspotSettings.taskDescription) {
-      this.setIntroduction(this.hotspotSettings.taskDescription);
+
+      const text = document.createElement('div');
+      text.classList.add('h5p-image-hotspot-question-introduction-text');
+      text.innerHTML = this.hotspotSettings.taskDescription;
+
+      const textWrapper = document.createElement('div');
+      textWrapper.classList.add('h5p-image-hotspot-question-introduction-text-wrapper');
+      textWrapper.append(text);
+      introduction.append(textWrapper);
     }
+
+    if (this.hotspotSettings.taskDescriptionAudio?.audio?.params?.files?.length) {
+      const params = this.hotspotSettings.taskDescriptionAudio.audio;
+      params.params.fitToWrapper = true;
+      if (
+        params.params.playerMode !== 'minimalistic' &&
+        params.params.playerMode !== 'full'
+      ) {
+        params.params.playerMode = 'full'
+      }
+
+      const instance = H5P.newRunnable(params, this.contentId, undefined, true);
+
+      if (instance) {
+        const audio = document.createElement('div');
+        audio.classList.add('h5p-image-hotspot-question-introduction-audio');
+        audio.classList.add(params.params.playerMode);
+
+        instance.attach(H5P.jQuery(audio));
+
+        console.log(audio.querySelector('.h5p-audio'));
+        const audioPlayer = audio.querySelector('.h5p-audio');
+        if (audioPlayer) {
+          audioPlayer.style.height = (
+            !!window.chrome && params.params.playerMode === 'full'
+          ) ?
+            '54px' : // Chromium based browsers like Chrome, Edge or Opera need explicit default height
+            '100%';
+        }
+
+        introduction.classList.add(`audio-${params.params.playerMode}`);
+        introduction.append(audio);
+      }
+    }
+
+    this.setIntroduction(introduction);
 
     // Register task content area
     this.setContent(this.createContent());
@@ -130,7 +177,7 @@ H5P.ImageHotspotQuestion = (function ($, Question) {
    * Create wrapper and main content for question.
    * @returns {H5P.jQuery} Wrapper
    */
-  ImageHotspotQuestion.prototype.createContent = function () {
+  ImageHotspotQuestionNOTENO.prototype.createContent = function () {
     var self = this;
 
     this.$wrapper = $('<div>', {
@@ -178,7 +225,7 @@ H5P.ImageHotspotQuestion = (function ($, Question) {
   /**
    * Initiate image click listener to capture clicks outside of defined hotspots.
    */
-  ImageHotspotQuestion.prototype.initImageClickListener = function () {
+  ImageHotspotQuestionNOTENO.prototype.initImageClickListener = function () {
     var self = this;
 
     this.$imageWrapper.click(function (mouseEvent) {
@@ -190,7 +237,7 @@ H5P.ImageHotspotQuestion = (function ($, Question) {
   /**
    * Attaches all hotspots.
    */
-  ImageHotspotQuestion.prototype.attachHotspots = function () {
+  ImageHotspotQuestionNOTENO.prototype.attachHotspots = function () {
     var self = this;
     this.hotspotSettings.hotspot.forEach(function (hotspot) {
       self.attachHotspot(hotspot);
@@ -202,7 +249,7 @@ H5P.ImageHotspotQuestion = (function ($, Question) {
    * Attach single hotspot.
    * @param {Object} hotspot Hotspot parameters
    */
-  ImageHotspotQuestion.prototype.attachHotspot = function (hotspot) {
+  ImageHotspotQuestionNOTENO.prototype.attachHotspot = function (hotspot) {
     var self = this;
     var $hotspot = $('<div>', {
       'class': 'image-hotspot ' + hotspot.computedSettings.figure
@@ -231,7 +278,7 @@ H5P.ImageHotspotQuestion = (function ($, Question) {
    * @param {Object} mouseEvent Mouse event containing mouse offsets within clicked element.
    * @param {Object} hotspot Hotspot parameters.
    */
-  ImageHotspotQuestion.prototype.createHotspotFeedback = function ($clickedElement, mouseEvent, hotspot) {
+  ImageHotspotQuestionNOTENO.prototype.createHotspotFeedback = function ($clickedElement, mouseEvent, hotspot) {
     // Do not create new hotspot if one exists
     if (this.hotspotFeedback.hotspotChosen) {
       return;
@@ -297,7 +344,7 @@ H5P.ImageHotspotQuestion = (function ($, Question) {
   /**
    * Create retry button and add it to button bar.
    */
-  ImageHotspotQuestion.prototype.createRetryButton = function () {
+  ImageHotspotQuestionNOTENO.prototype.createRetryButton = function () {
     var self = this;
 
     this.addButton('retry-button', this.params.imageHotspotQuestion.hotspotSettings.l10n.retryText, function () {
@@ -310,7 +357,7 @@ H5P.ImageHotspotQuestion = (function ($, Question) {
   /**
    * Finish question and remove retry button.
    */
-  ImageHotspotQuestion.prototype.finishQuestion = function () {
+  ImageHotspotQuestionNOTENO.prototype.finishQuestion = function () {
     this.score = 1;
     // Remove button
     this.hideButton('retry-button');
@@ -321,7 +368,7 @@ H5P.ImageHotspotQuestion = (function ($, Question) {
    * Used in contracts.
    * @returns {boolean}
    */
-  ImageHotspotQuestion.prototype.getAnswerGiven = function () {
+  ImageHotspotQuestionNOTENO.prototype.getAnswerGiven = function () {
     return this.hotspotFeedback.hotspotChosen;
   };
 
@@ -330,11 +377,11 @@ H5P.ImageHotspotQuestion = (function ($, Question) {
    * Used in contracts
    * @returns {number}
    */
-  ImageHotspotQuestion.prototype.getScore = function () {
+  ImageHotspotQuestionNOTENO.prototype.getScore = function () {
     return this.score;
   };
 
-  ImageHotspotQuestion.prototype.getTitle = function () {
+  ImageHotspotQuestionNOTENO.prototype.getTitle = function () {
     return H5P.createTitle((this.contentData.metadata && this.contentData.metadata.title) ? this.contentData.metadata.title : 'Fill In');
   };
 
@@ -343,14 +390,14 @@ H5P.ImageHotspotQuestion = (function ($, Question) {
    * Used in contracts.
    * @returns {number}
    */
-  ImageHotspotQuestion.prototype.getMaxScore = function () {
+  ImageHotspotQuestionNOTENO.prototype.getMaxScore = function () {
     return this.maxScore;
   };
 
   /**
    * Trigger xAPI answered event
    */
-  ImageHotspotQuestion.prototype.triggerAnswered = function () {
+  ImageHotspotQuestionNOTENO.prototype.triggerAnswered = function () {
     var self = this;
     var xAPIEvent = self.createXAPIEventTemplate('answered');
 
@@ -366,10 +413,10 @@ H5P.ImageHotspotQuestion = (function ($, Question) {
   /**
    * Get xAPI data.
    * Contract used by report rendering engine.
-   * 
+   *
    * @see contract at {@link https://h5p.org/documentation/developers/contracts#guides-header-6}
    */
-  ImageHotspotQuestion.prototype.getXAPIData = function () {
+  ImageHotspotQuestionNOTENO.prototype.getXAPIData = function () {
     var self = this;
     var xAPIEvent = self.createXAPIEventTemplate('answered');
     xAPIEvent.setScoredResult(self.getScore(), self.getMaxScore(), self, true, true);
@@ -382,7 +429,7 @@ H5P.ImageHotspotQuestion = (function ($, Question) {
   /**
    * Add the question itselt to the definition part of an xAPIEvent
    */
-  ImageHotspotQuestion.prototype.addQuestionToXAPI = function (xAPIEvent) {
+  ImageHotspotQuestionNOTENO.prototype.addQuestionToXAPI = function (xAPIEvent) {
     var definition = xAPIEvent.getVerifiedStatementValue(['object', 'definition']);
     $.extend(true, definition, this.getxAPIDefinition());
   };
@@ -391,7 +438,7 @@ H5P.ImageHotspotQuestion = (function ($, Question) {
    * Generate xAPI object definition used in xAPI statements.
    * @return {Object}
    */
-  ImageHotspotQuestion.prototype.getxAPIDefinition = function () {
+  ImageHotspotQuestionNOTENO.prototype.getxAPIDefinition = function () {
     // Individual report not supported
     if (this.isRoot()) {
       return;
@@ -409,7 +456,7 @@ H5P.ImageHotspotQuestion = (function ($, Question) {
    * Display the first found solution for this question.
    * Used in contracts
    */
-  ImageHotspotQuestion.prototype.showSolutions = function () {
+  ImageHotspotQuestionNOTENO.prototype.showSolutions = function () {
     var self = this;
     var foundSolution = false;
 
@@ -426,7 +473,7 @@ H5P.ImageHotspotQuestion = (function ($, Question) {
    * Resets the question.
    * Used in contracts.
    */
-  ImageHotspotQuestion.prototype.resetTask = function () {
+  ImageHotspotQuestionNOTENO.prototype.resetTask = function () {
     // Remove hotspot feedback
     if (this.hotspotFeedback.$element) {
       this.hotspotFeedback.$element.remove();
@@ -443,7 +490,7 @@ H5P.ImageHotspotQuestion = (function ($, Question) {
   /**
    * Resize image and wrapper
    */
-  ImageHotspotQuestion.prototype.resize = function () {
+  ImageHotspotQuestionNOTENO.prototype.resize = function () {
     this.resizeImage();
     this.resizeHotspotFeedback();
   };
@@ -451,7 +498,7 @@ H5P.ImageHotspotQuestion = (function ($, Question) {
   /**
    * Resize image to fit parent width.
    */
-  ImageHotspotQuestion.prototype.resizeImage = function () {
+  ImageHotspotQuestionNOTENO.prototype.resizeImage = function () {
     var self = this;
 
     // Check that question has been attached
@@ -488,7 +535,7 @@ H5P.ImageHotspotQuestion = (function ($, Question) {
   /**
    * Re-position hotspot feedback.
    */
-  ImageHotspotQuestion.prototype.resizeHotspotFeedback = function () {
+  ImageHotspotQuestionNOTENO.prototype.resizeHotspotFeedback = function () {
     // Check that hotspot is chosen
     if (!this.hotspotFeedback.hotspotChosen) {
       return;
@@ -505,5 +552,5 @@ H5P.ImageHotspotQuestion = (function ($, Question) {
     });
   };
 
-  return ImageHotspotQuestion;
+  return ImageHotspotQuestionNOTENO;
 }(H5P.jQuery, H5P.Question));
