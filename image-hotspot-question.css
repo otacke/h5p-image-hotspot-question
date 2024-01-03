@@ -62,12 +62,21 @@
   .h5p-image-hotspot-question .h5p-image-hotspot-question-introduction.audio-full .h5p-image-hotspot-question-introduction-text-wrapper {
     min-width: auto;
   }
+}
+
+@container (max-width: 15rem) {
+  .h5p-image-hotspot-question .h5p-image-hotspot-question-introduction {
+    flex-wrap: wrap;
+  }
+
+  .h5p-image-hotspot-question .h5p-image-hotspot-question-introduction.audio-full .h5p-image-hotspot-question-introduction-text-wrapper {
+    min-width: auto;
+  }
 
   .h5p-image-hotspot-question .h5p-image-hotspot-question-introduction.audio-full .h5p-image-hotspot-question-introduction-audio {
     min-width: auto;
   }
 }
-
 /**
  * This content type is embedded using DIV. there are several examples on themes
  * setting styles for all images, which affects this content type in a bad way.
