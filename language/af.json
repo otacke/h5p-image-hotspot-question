@@ -21,6 +21,17 @@
               "description": "Instruksies vir die gebruiker."
             },
             {
+              "label": "Optional audio task description",
+              "fields": [
+                {
+                  "label": "Optional audio task description"
+                },
+                {
+                  "label": "Dummy"
+                }
+              ]
+            },
+            {
               "label": "Brandpunt",
               "entity": "Brandpunt",
               "field": {

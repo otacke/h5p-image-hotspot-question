@@ -21,6 +21,17 @@
               "description": "使用者操作指南."
             },
             {
+              "label": "Optional audio task description",
+              "fields": [
+                {
+                  "label": "Optional audio task description"
+                },
+                {
+                  "label": "Dummy"
+                }
+              ]
+            },
+            {
               "label": "任務連結點",
               "entity": "任務連結點",
               "field": {

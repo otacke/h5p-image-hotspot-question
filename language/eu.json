@@ -21,6 +21,17 @@
               "description": "Erabiltzailearentzako jarraibideak."
             },
             {
+              "label": "Optional audio task description",
+              "fields": [
+                {
+                  "label": "Optional audio task description"
+                },
+                {
+                  "label": "Dummy"
+                }
+              ]
+            },
+            {
               "label": "Leku beroa",
               "entity": "Leku beroa",
               "field": {

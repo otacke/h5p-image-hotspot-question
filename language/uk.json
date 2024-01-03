@@ -21,6 +21,17 @@
               "description": "Інструкції для користувача."
             },
             {
+              "label": "Optional audio task description",
+              "fields": [
+                {
+                  "label": "Optional audio task description"
+                },
+                {
+                  "label": "Dummy"
+                }
+              ]
+            },
+            {
               "label": "Точка доступу",
               "entity": "Точка доступу",
               "field": {

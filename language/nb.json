@@ -21,6 +21,17 @@
               "description": "Instruksjoner om hvordan man skal løse oppgaven."
             },
             {
+              "label": "Valgfri lyd for oppgavebeskrivelse",
+              "fields": [
+                {
+                  "label": "Valgfri lyd for oppgavebeskrivelse"
+                },
+                {
+                  "label": "Dummy"
+                }
+              ]
+            },
+            {
               "label": "Målfelt",
               "entity": "Målfelt",
               "field": {

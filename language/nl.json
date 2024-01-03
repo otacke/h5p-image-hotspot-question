@@ -21,6 +21,17 @@
               "description": "Instructies voor de gebruiker."
             },
             {
+              "label": "Valgfri lyd for oppgavebeskrivelse",
+              "fields": [
+                {
+                  "label": "Valgfri lyd for oppgavebeskrivelse"
+                },
+                {
+                  "label": "Dummy"
+                }
+              ]
+            },
+            {
               "label": "Hotspot",
               "entity": "Hotspot",
               "field": {

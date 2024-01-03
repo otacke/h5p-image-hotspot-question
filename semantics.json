@@ -38,7 +38,6 @@
             "optional": true
           },
           {
-            "state": "new",
             "name": "taskDescriptionAudio",
             "type": "group",
             "label": "Optional audio task description",
@@ -46,7 +45,6 @@
             "optional": true,
             "fields": [
               {
-                "state": "new",
                 "name": "audio",
                 "type": "library",
                 "label": "Optional audio task description",
@@ -56,9 +54,8 @@
                 ]
               },
               {
-                "state": "new",
                 "name": "dummy",
-                "type":"boolean",
+                "type": "boolean",
                 "label": "Dummy",
                 "widget": "none"
               }

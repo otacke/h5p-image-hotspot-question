@@ -21,6 +21,17 @@
               "description": "Kullanıcı için talimatlar."
             },
             {
+              "label": "Optional audio task description",
+              "fields": [
+                {
+                  "label": "Optional audio task description"
+                },
+                {
+                  "label": "Dummy"
+                }
+              ]
+            },
+            {
               "label": "Hotspot",
               "entity": "Hotspot",
               "field": {

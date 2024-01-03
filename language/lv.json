@@ -1,6 +1,7 @@
 {
   "semantics": [
     {
+      "label": "Attēla aktīvo punktu jautājuma redaktors",
       "fields": [
         {
           "label": "Fona attēls",
@@ -13,17 +14,31 @@
         },
         {
           "label": "Aktīvie punkti",
+          "description": "Pārvelciet vēlamo figūru no rīkjoslas, lai izveidotu jaunu aktīvo punktu. Sāciet rediģēt esošu aktīvo punktu ar peles dubultklikšķi. Velciet aktīvo punktu, lai to pārvietotu. Velciet izmēra pielāgošanas rāmja apakšējo labo stūri, lai mainītu izmēru.",
           "fields": [
             {
               "label": "Uzdevuma apraksts",
               "description": "Lietotāja pamācība."
             },
             {
+              "label": "Optional audio task description",
+              "fields": [
+                {
+                  "label": "Optional audio task description"
+                },
+                {
+                  "label": "Dummy"
+                }
+              ]
+            },
+            {
               "label": "Aktīvais punkts",
+              "entity": "Aktīvais punkts",
               "field": {
                 "label": "Aktīvais punkts",
                 "fields": [
                   {
+                    "label": "lietotāja iestatījumi",
                     "fields": [
                       {
                         "label": "Pareizi",
@@ -32,15 +47,13 @@
                       {
                         "label": "Atgriezeniskā saite"
                       }
-                    ],
-                    "label": "lietotāja iestatījumi"
+                    ]
                   },
                   {
                     "label": "aprēķina iestatījumi"
                   }
                 ]
-              },
-              "entity": "Aktīvais punkts"
+              }
             },
             {
               "label": "Atgriezeniskā saite ja lietotājs izvēlas tukšu vietu:",
@@ -62,19 +75,17 @@
                 }
               ]
             }
-          ],
-          "description": "Pārvelciet vēlamo figūru no rīkjoslas, lai izveidotu jaunu aktīvo punktu. Sāciet rediģēt esošu aktīvo punktu ar peles dubultklikšķi. Velciet aktīvo punktu, lai to pārvietotu. Velciet izmēra pielāgošanas rāmja apakšējo labo stūri, lai mainītu izmēru."
+          ]
         }
-      ],
-      "label": "Attēla aktīvo punktu jautājuma redaktors"
+      ]
     },
     {
       "label": "Rezultātu skalas tekstuālais atspoguļojums tiem, kas izmanto asistīvās tehnoloģijas",
       "default": "Tu saņēmi :num no :total punktiem"
     },
     {
-      "default": "Mēģiniet uzdevumu vēlreiz. Dzēst visas iesniegtās atbildes un sākt uzdevumu no sākuma.",
-      "label": "Pogas \"Mēģināt vēlreiz\" apraksts priekš asistīvajām tehnoloģijām"
+      "label": "Pogas \"Mēģināt vēlreiz\" apraksts priekš asistīvajām tehnoloģijām",
+      "default": "Mēģiniet uzdevumu vēlreiz. Dzēst visas iesniegtās atbildes un sākt uzdevumu no sākuma."
     }
   ]
 }

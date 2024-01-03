@@ -21,6 +21,17 @@
               "description": "Οδηγίες προς τον χρήστη."
             },
             {
+              "label": "Optional audio task description",
+              "fields": [
+                {
+                  "label": "Optional audio task description"
+                },
+                {
+                  "label": "Dummy"
+                }
+              ]
+            },
+            {
               "label": "Hotspot",
               "entity": "Hotspot",
               "field": {

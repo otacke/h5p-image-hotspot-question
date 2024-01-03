@@ -21,6 +21,17 @@
               "description": "사용자 안내 사항"
             },
             {
+              "label": "Optional audio task description",
+              "fields": [
+                {
+                  "label": "Optional audio task description"
+                },
+                {
+                  "label": "Dummy"
+                }
+              ]
+            },
+            {
               "label": "핫스팟",
               "entity": "핫스팟",
               "field": {
