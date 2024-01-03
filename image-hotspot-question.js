@@ -149,7 +149,6 @@ H5P.ImageHotspotQuestionNOTENO = (function ($, Question) {
 
         instance.attach(H5P.jQuery(audio));
 
-        console.log(audio.querySelector('.h5p-audio'));
         const audioPlayer = audio.querySelector('.h5p-audio');
         if (audioPlayer) {
           audioPlayer.style.height = (
