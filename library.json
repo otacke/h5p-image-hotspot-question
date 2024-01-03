@@ -12,6 +12,9 @@
     "majorVersion": 1,
     "minorVersion": 23
   },
+  "embedTypes": [
+    "iframe"
+  ],
   "machineName": "H5P.ImageHotspotQuestionNOTENO",
   "preloadedCss": [
     {
